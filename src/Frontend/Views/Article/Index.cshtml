@@ -1,0 +1,20 @@
+﻿@using Frontend.Data
+@model List<Article>
+
+@{
+    ViewData["Title"] = "Статьи";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (@Model.Count == 0)
+{
+    <p>Нет статей</p>
+}
+else
+{
+    @foreach (var article in @Model)
+    {
+        <div>@article.Title</div>
+    }    
+}
