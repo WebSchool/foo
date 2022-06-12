@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  db:
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: frontend_db
+      MYSQL_USER: tima
+      MYSQL_PASSWORD: 1234567
+    restart: always
+
+  migrations:
+    container_name: migrations
+    build: 
+      context: .
+      dockerfile: Migrations.Dockerfile
+    depends_on:
+      - db
+
+  frontend:
+    image: ${DOCKER_REGISTRY-}frontend
+    build:
+      context: .
+      dockerfile: src/Frontend/Dockerfile
+    depends_on:
+      - db
+      - migrations
+    ports:
+      - 5000:80
+
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: src/Api/Dockerfile
