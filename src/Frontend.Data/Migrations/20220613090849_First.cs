@@ -26,6 +26,16 @@ namespace Frontend.Data.Migrations
                     table.PrimaryKey("PK_Articles", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Articles",
+                columns: new[] { "Id", "Title" },
+                values: new object[] { 1, "Статья первая" });
+
+            migrationBuilder.InsertData(
+                table: "Articles",
+                columns: new[] { "Id", "Title" },
+                values: new object[] { 2, "Статья вторая" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

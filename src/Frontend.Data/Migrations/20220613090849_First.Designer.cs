@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Frontend.Data.Migrations
 {
     [DbContext(typeof(FrontendDbContext))]
-    [Migration("20220612203242_First")]
+    [Migration("20220613090849_First")]
     partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,18 @@ namespace Frontend.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Articles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "Статья первая"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "Статья вторая"
+                        });
                 });
 #pragma warning restore 612, 618
         }

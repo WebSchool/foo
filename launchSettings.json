@@ -6,8 +6,7 @@
       "serviceActions": {
         "api": "StartWithoutDebugging",
         "frontend": "StartWithoutDebugging",
-        "db": "StartWithoutDebugging",
-        "migrations": "StartWithoutDebugging"
+        "db": "StartWithoutDebugging"
       }
     }
   }
