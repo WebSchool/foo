@@ -36,3 +36,44 @@ jobs:
 
     - name: Test
       run: dotnet test ./tests/UnitTests/Frontend.Tests -c Release --no-restore --no-build --verbosity normal
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build and push Api
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        file: ./src/Api/Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/Api:latest
+
+
+    - name: Build and push Frontend
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        file: ./src/Frontend/Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/Frontend:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
