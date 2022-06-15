@@ -1,4 +1,4 @@
-using Frontend.Data;
+﻿using Frontend.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,13 +31,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-// docker login -u webschool
-// docker network create foo
-
-// docker build -t webschool/frontend:latest -f .\src\Frontend\Dockerfile .
-// docker build -t webschool/api:latest -f .\src\Api\Dockerfile .
-
-// docker run -d --network foo -p 5000:80 webschool/frontend
-// docker run -d --network foo --network-alias api webschool/api
-

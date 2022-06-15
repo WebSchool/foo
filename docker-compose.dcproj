@@ -3,17 +3,16 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>682ff7d4-f37f-45a2-a9d7-fa3b09132928</ProjectGuid>
+    <ProjectGuid>55d8a73e-0a14-4c2c-ba0d-48d7fd59061c</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost</DockerServiceUrl>
     <DockerServiceName>frontend</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Migrations.Dockerfile" />
-    <None Include="docker-compose.override.yml">
-      <DependentUpon>docker-compose.yml</DependentUpon>
-    </None>
+    <None Include="nginx.conf" />
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
+    <None Include="auth\my-site.crt" />
+    <None Include="auth\my-site.key" />
   </ItemGroup>
 </Project>
