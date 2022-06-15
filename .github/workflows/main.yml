@@ -16,11 +16,17 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: Restore dependencies for Api
+      run: dotnet restore .\src\Api
 
-    - name: Build
-      run: dotnet build -c Release --no-restore
+    - name: Build Api
+      run: dotnet build -c Release --no-restore .\src\Api
+
+    - name: Restore dependencies for Frontend
+      run: dotnet restore .\src\Frontend
+
+    - name: Build Frontend
+      run: dotnet build -c Release --no-restore .\src\Frontend
 
     - name: Test
-      run: dotnet test -c Release --no-restore --no-build --verbosity normal
+      run: dotnet test .\tests\UnitTests\Frontend.Tests -c Release --no-restore --no-build --verbosity normal
