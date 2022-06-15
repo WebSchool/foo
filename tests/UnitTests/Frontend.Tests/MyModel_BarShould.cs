@@ -10,6 +10,6 @@ public class MyModel_BarShould
         var myModel = new MyModel();
         bool result = myModel.Bar(1);
 
-        Assert.False(result, "1 не должно быть простым числом");
+        Assert.True(result, "1 не должно быть простым числом");
     }
 }
