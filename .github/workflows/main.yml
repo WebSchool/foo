@@ -28,5 +28,11 @@ jobs:
     - name: Build Frontend
       run: dotnet build -c Release --no-restore ./src/Frontend
 
+    - name: Restore dependencies for Tests
+      run: dotnet restore ./tests/UnitTests/Frontend.Tests
+
+    - name: Build Tests
+      run: dotnet build -c Release --no-restore ./tests/UnitTests/Frontend.Tests
+
     - name: Test
       run: dotnet test ./tests/UnitTests/Frontend.Tests -c Release --no-restore --no-build --verbosity normal
