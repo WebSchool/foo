@@ -9,6 +9,7 @@
     <DockerServiceName>frontend</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include=".github\workflows\main.yml" />
     <None Include="nginx.conf" />
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
