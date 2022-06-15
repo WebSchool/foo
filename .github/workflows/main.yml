@@ -52,7 +52,7 @@ jobs:
         context: .
         file: ./src/Api/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/Api:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/api:latest
 
 
     - name: Build and push Frontend
@@ -61,7 +61,7 @@ jobs:
         context: .
         file: ./src/Frontend/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/Frontend:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/frontend:latest
 
 
 
