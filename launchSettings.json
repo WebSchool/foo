@@ -2,10 +2,13 @@
   "profiles": {
     "Docker Compose": {
       "commandName": "DockerCompose",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "frontend",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}",
       "commandVersion": "1.0",
       "serviceActions": {
         "api": "StartWithoutDebugging",
-        "frontend": "StartWithoutDebugging",
+        "frontend": "StartDebugging",
         "db": "StartWithoutDebugging"
       }
     }

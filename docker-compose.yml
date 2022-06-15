@@ -31,3 +31,13 @@ services:
     build:
       context: .
       dockerfile: src/Api/Dockerfile
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - 8081:80
+    restart: always
